@@ -1,9 +1,14 @@
+// Context
+import { useContext } from 'react';
+import statusContext from '../Context/statusContext';
+
 const Header = () => {
-  const date = new Date().toTimeString();
+  const { subject } = useContext(statusContext);
+
   return (
     <div className="date">
       <h2>QBS - Qburst Status</h2>
-      <h3>{date} Koratty</h3>
+      <p>{subject}</p>
     </div>
   );
 };

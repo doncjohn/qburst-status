@@ -1,18 +1,27 @@
+// Context
+import { useContext } from 'react';
+import statusContext from '../Context/statusContext';
+
 const ToDoList = () => {
-  const onClick = () => {
-    console.log('Remove ToDoList Item');
+  const { todos, setTodos } = useContext(statusContext);
+
+  const onClick = e => {
+    setTodos(todos.filter(todo => todo.id !== e.target.value));
   };
-  const toDoListItems = ['Sample ToDoList 1', 'Sample ToDoList 2'];
+
   return (
     <ul>
-      {toDoListItems.map(todo => {
-        return (
-          <li key={todo}>
-            {todo}
-            <button onClick={onClick}>x</button>
-          </li>
-        );
-      })}
+      {todos &&
+        todos.map(todo => {
+          return (
+            <li key={todo.id}>
+              {todo.name}
+              <button value={todo.id} onClick={onClick}>
+                x
+              </button>
+            </li>
+          );
+        })}
     </ul>
   );
 };

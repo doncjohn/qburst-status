@@ -1,18 +1,27 @@
+// Context
+import { useContext } from 'react';
+import statusContext from '../Context/statusContext';
+
 const WorkDoneList = () => {
-  const onClick = () => {
-    console.log('Remove WorkDoneList Item');
+  const { works, setWorks } = useContext(statusContext);
+
+  const onClick = e => {
+    setWorks(works.filter(work => work.id !== e.target.value));
   };
-  const WorkDoneListItems = ['Sample WorkDone 1', 'Sample WorkDone 2'];
+
   return (
     <ul>
-      {WorkDoneListItems.map(work => {
-        return (
-          <li key={work}>
-            {work}
-            <button onClick={onClick}>x</button>
-          </li>
-        );
-      })}
+      {works &&
+        works.map(work => {
+          return (
+            <li key={work.id}>
+              {work.name}
+              <button value={work.id} onClick={e => onClick(e)}>
+                x
+              </button>
+            </li>
+          );
+        })}
     </ul>
   );
 };
