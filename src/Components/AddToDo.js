@@ -15,7 +15,8 @@ const AddToDo = () => {
   const onClick = async e => {
     if (!e.key || (e.key && e.key === 'Enter')) {
       const id = uid();
-      setTodos([...todos, { id, name: todo }]);
+      if (todo) setTodos([...todos, { id, name: todo }]);
+      setTodo('');
     }
   };
 

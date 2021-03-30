@@ -15,7 +15,8 @@ const AddWorkDone = () => {
   const onClick = async e => {
     if (!e.key || (e.key && e.key === 'Enter')) {
       const id = uid();
-      setWorks([...works, { id, name: work }]);
+      if (work) setWorks([...works, { id, name: work }]);
+      setwork('');
     }
   };
 

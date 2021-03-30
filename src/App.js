@@ -13,9 +13,10 @@ const App = () => {
   const date = new Date();
   // prettier-ignore
   const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  const subject = `Status Report - ${
+  const dateString = `${
     monthNames[date.getMonth()]
-  } ${date.getDate()}, ${date.getFullYear()} (Koratty)`;
+  } ${date.getDate()}, ${date.getFullYear()}`;
+  const subject = `Status Report - ${dateString} (Koratty)`;
 
   // Project Logic
   const [project, setProject] = useState('N/A');
@@ -54,6 +55,7 @@ const App = () => {
     <div className="App">
       <statusContext.Provider
         value={{
+          dateString,
           subject,
           project,
           setProject,

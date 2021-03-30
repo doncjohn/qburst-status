@@ -5,7 +5,7 @@ import WorkDoneList from './WorkDoneList';
 const WorkDone = () => {
   return (
     <div>
-      <p>WorkDone</p>
+      <p>Work Done</p>
       <AddWorkDone />
       <WorkDoneList />
     </div>

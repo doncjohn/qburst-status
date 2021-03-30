@@ -30,9 +30,11 @@ const Project = () => {
         type="text"
         value={projectText}
       />
-      <button onClick={e => onClick(e)}>Update</button>
       {projectText !== 'N/A' && (
-        <button onClick={e => onReset(e)}>Reset</button>
+        <>
+          <button onClick={e => onClick(e)}>Update</button>
+          <button onClick={e => onReset(e)}>Reset</button>
+        </>
       )}
     </div>
   );

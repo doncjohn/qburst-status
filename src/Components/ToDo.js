@@ -5,7 +5,7 @@ import ToDoList from './ToDoList';
 const ToDo = () => {
   return (
     <div>
-      <p>ToDo</p>
+      <p>To Do</p>
       <AddToDo />
       <ToDoList />
     </div>
