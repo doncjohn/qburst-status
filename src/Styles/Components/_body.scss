@@ -1,0 +1,26 @@
+.body {
+  align-items: center;
+  border-radius: $size_8;
+  display: flex;
+  justify-content: space-evenly;
+  margin: $size_5;
+}
+
+@media screen and (max-width: $desktop_breakpoint) {
+  .body {
+    align-items: flex-start;
+    border-radius: $size_8;
+    display: flex;
+    padding: $size_4;
+    flex-direction: column;
+  }
+  .body__sub {
+    margin: 0;
+    width: $size_24;
+  }
+}
+
+.body__sub {
+  margin: 0;
+  width: $size_24;
+}

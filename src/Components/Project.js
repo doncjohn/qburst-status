@@ -2,6 +2,10 @@
 import { useContext, useEffect, useState } from 'react';
 import statusContext from '../Context/statusContext';
 
+// SVG Import
+import { ReactComponent as ResetSVG } from '../Styles/svg/reset.svg';
+import { ReactComponent as UpdateSVG } from '../Styles/svg/update.svg';
+
 const Project = () => {
   const { project, setProject } = useContext(statusContext);
   const [projectText, setProjectText] = useState(project);
@@ -22,9 +26,10 @@ const Project = () => {
   };
 
   return (
-    <div>
-      <p>Project</p>
+    <div className="project">
+      <p className="project__title">Project</p>
       <input
+        className="project__input"
         onChange={e => onChange(e)}
         onKeyPress={e => onClick(e)}
         type="text"
@@ -32,8 +37,12 @@ const Project = () => {
       />
       {projectText !== 'N/A' && (
         <>
-          <button onClick={e => onClick(e)}>Update</button>
-          <button onClick={e => onReset(e)}>Reset</button>
+          <button className="button" onClick={e => onClick(e)}>
+            <UpdateSVG className="svgImage__large" />
+          </button>
+          <button className="button" onClick={e => onReset(e)}>
+            <ResetSVG className="svgImage__large" />
+          </button>
         </>
       )}
     </div>

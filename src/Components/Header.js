@@ -6,7 +6,7 @@ const Header = () => {
   const { subject } = useContext(statusContext);
 
   return (
-    <div className="date">
+    <div className="header">
       <h2>QBS - Qburst Status</h2>
       <p>{subject}</p>
     </div>

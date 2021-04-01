@@ -51,6 +51,12 @@ const App = () => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
 
+  // CopyButtons Logic
+  const [email, setEmail] = useState('');
+  const [hangout, setHangout] = useState('');
+  const [space, setSpace] = useState('');
+  const [button, setButton] = useState('');
+
   return (
     <div className="App">
       <statusContext.Provider
@@ -63,6 +69,14 @@ const App = () => {
           setWorks,
           todos,
           setTodos,
+          email,
+          setEmail,
+          hangout,
+          setHangout,
+          space,
+          setSpace,
+          button,
+          setButton,
         }}
       >
         <Header />

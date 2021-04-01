@@ -2,8 +2,11 @@
 import { useContext } from 'react';
 import statusContext from '../Context/statusContext';
 
+// SVG Import
+import { ReactComponent as SpaceSVG } from '../Styles/svg/space.svg';
+
 const Space = () => {
-  const { works } = useContext(statusContext);
+  const { works, setSpace, setButton } = useContext(statusContext);
 
   const onClick = () => {
     const workDone = works.map(work => work.name.toString() + '\n');
@@ -12,13 +15,17 @@ const Space = () => {
       .trim()
       .replaceAll(',', '')}`;
 
-    console.log(string);
+    setSpace(string);
+    setButton('space');
     navigator.clipboard.writeText(string);
   };
 
   return (
     <>
-      <button onClick={onClick}>Space</button>
+      <div className="button__copy" onClick={onClick}>
+        <SpaceSVG className="svgImage" />
+        <p>Space</p>
+      </div>
     </>
   );
 };

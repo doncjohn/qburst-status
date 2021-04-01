@@ -2,11 +2,16 @@
 import { useContext } from 'react';
 import statusContext from '../Context/statusContext';
 
+// SVG Import
+import { ReactComponent as CloseSVG } from '../Styles/svg/close.svg';
+
 const WorkDoneList = () => {
   const { works, setWorks } = useContext(statusContext);
 
   const onClick = e => {
-    setWorks(works.filter(work => work.id !== e.target.value));
+    setWorks(
+      works.filter(work => work.id !== e.target.closest('button').value)
+    );
   };
 
   return (
@@ -14,10 +19,14 @@ const WorkDoneList = () => {
       {works &&
         works.map(work => {
           return (
-            <li key={work.id}>
+            <li className="list" key={work.id}>
               {work.name}
-              <button value={work.id} onClick={e => onClick(e)}>
-                x
+              <button
+                className="button"
+                value={work.id}
+                onClick={e => onClick(e)}
+              >
+                <CloseSVG />
               </button>
             </li>
           );

@@ -2,11 +2,16 @@
 import { useContext } from 'react';
 import statusContext from '../Context/statusContext';
 
+// SVG Import
+import { ReactComponent as CloseSVG } from '../Styles/svg/close.svg';
+
 const ToDoList = () => {
   const { todos, setTodos } = useContext(statusContext);
 
   const onClick = e => {
-    setTodos(todos.filter(todo => todo.id !== e.target.value));
+    setTodos(
+      todos.filter(todo => todo.id !== e.target.closest('button').value)
+    );
   };
 
   return (
@@ -14,10 +19,10 @@ const ToDoList = () => {
       {todos &&
         todos.map(todo => {
           return (
-            <li key={todo.id}>
+            <li className="list" key={todo.id}>
               {todo.name}
-              <button value={todo.id} onClick={onClick}>
-                x
+              <button className="button" value={todo.id} onClick={onClick}>
+                <CloseSVG />
               </button>
             </li>
           );

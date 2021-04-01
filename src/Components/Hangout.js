@@ -2,8 +2,11 @@
 import { useContext } from 'react';
 import statusContext from '../Context/statusContext';
 
+// SVG Import
+import { ReactComponent as HangoutsSVG } from '../Styles/svg/hangouts.svg';
+
 const Hangout = () => {
-  const { works, todos } = useContext(statusContext);
+  const { works, todos, setHangout, setButton } = useContext(statusContext);
 
   const onClick = () => {
     const workDone = works.map(work => work.name.toString() + '\n');
@@ -17,13 +20,17 @@ const Hangout = () => {
       .trim()
       .replaceAll(',', '')}`;
 
-    console.log(string);
+    setHangout(string);
+    setButton('hangout');
     navigator.clipboard.writeText(string);
   };
 
   return (
     <>
-      <button onClick={onClick}>Hangout</button>
+      <div className="button__copy" onClick={onClick}>
+        <HangoutsSVG className="svgImage" />
+        <p>Hangouts</p>
+      </div>
     </>
   );
 };

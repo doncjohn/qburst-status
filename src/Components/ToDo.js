@@ -4,8 +4,8 @@ import ToDoList from './ToDoList';
 
 const ToDo = () => {
   return (
-    <div>
-      <p>To Do</p>
+    <div className="todo">
+      <p className="todo__title">To Do</p>
       <AddToDo />
       <ToDoList />
     </div>

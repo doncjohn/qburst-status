@@ -1,0 +1,16 @@
+.project {
+  align-items: center;
+  display: flex;
+}
+
+.project__title {
+  margin-right: $size_10;
+  font-size: $size_8;
+  font-weight: bolder;
+}
+
+.project__input {
+  padding: $size_2;
+  width: $size_23;
+  text-align: left;
+}

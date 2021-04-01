@@ -5,7 +5,7 @@ import Space from './Space';
 
 const CopyButtons = () => {
   return (
-    <div>
+    <div className="copyButtons">
       <Email />
       <Hangout />
       <Space />

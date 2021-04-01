@@ -1,0 +1,12 @@
+.workDone {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.workDone__title {
+  margin-right: $size_10;
+  font-size: $size_8;
+  font-weight: bolder;
+}

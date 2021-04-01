@@ -2,6 +2,9 @@
 import { useState, useContext } from 'react';
 import statusContext from '../Context/statusContext';
 
+// SVG Import
+import { ReactComponent as AddSVG } from '../Styles/svg/add.svg';
+
 import { uid } from 'uid';
 
 const AddToDo = () => {
@@ -21,15 +24,18 @@ const AddToDo = () => {
   };
 
   return (
-    <div>
+    <div className="addInput">
       <input
+        className="addInput__input"
         onChange={e => onChange(e)}
         onKeyPress={e => onClick(e)}
         type="text"
         value={todo}
         placeholder="Add New To Do"
       />
-      <button onClick={e => onClick(e)}>Add</button>
+      <button className="button" onClick={e => onClick(e)}>
+        <AddSVG />
+      </button>
     </div>
   );
 };

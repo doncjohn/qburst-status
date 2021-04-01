@@ -1,0 +1,44 @@
+.button {
+  border: none;
+  background: #ffffff;
+  height: $size_9;
+  margin: 0 $size_3;
+  padding: 0;
+  transition: 0.4s;
+  width: $size_9;
+}
+
+.button__copy {
+  align-items: center;
+  border: $size_1 solid $black;
+  box-shadow: $grey 4px 4px 5px 1px;
+  display: flex;
+  height: $size_9;
+  justify-content: center;
+  margin: 0 $size_10;
+  padding: $size_2;
+  transition: 0.4s;
+  width: $size_18;
+}
+
+.button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.button__copy:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+@media screen and (max-width: $desktop_breakpoint) {
+  .button__copy {
+    margin: $size_2 0;
+    transition: 0.2s;
+  }
+
+  .button:hover,
+  .button__copy:hover {
+    transform: scale(1.1);
+  }
+}

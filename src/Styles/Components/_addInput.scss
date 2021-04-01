@@ -1,0 +1,24 @@
+.addInput {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.addInput__input {
+  padding: $size_2;
+  width: $size_25;
+  text-align: left;
+}
+
+@media screen and (max-width: $desktop_breakpoint) {
+  .addInput {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .addInput__input {
+    width: $size_24;
+    margin-bottom: $size_2;
+  }
+}

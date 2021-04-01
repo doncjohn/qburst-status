@@ -1,0 +1,13 @@
+.copyButtons {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: $size_12;
+}
+
+@media screen and (max-width: $desktop_breakpoint) {
+  .copyButtons {
+    display: flex;
+    flex-direction: column;
+  }
+}

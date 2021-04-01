@@ -4,8 +4,8 @@ import WorkDoneList from './WorkDoneList';
 
 const WorkDone = () => {
   return (
-    <div>
-      <p>Work Done</p>
+    <div className="workDone">
+      <p className="workDone__title">Work Done</p>
       <AddWorkDone />
       <WorkDoneList />
     </div>
