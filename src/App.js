@@ -11,11 +11,12 @@ import statusContext from './Context/statusContext';
 const App = () => {
   // Header Logic
   const date = new Date();
+  const day = ('0' + date.getDate()).slice(-2);
   // prettier-ignore
   const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   const dateString = `${
     monthNames[date.getMonth()]
-  } ${date.getDate()}, ${date.getFullYear()}`;
+  } ${day}, ${date.getFullYear()}`;
   const subject = `Status Report - ${dateString} (Koratty)`;
 
   // Project Logic
