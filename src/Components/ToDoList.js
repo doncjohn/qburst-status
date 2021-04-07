@@ -15,7 +15,7 @@ const ToDoList = () => {
   };
 
   return (
-    <ul>
+    <ul className="list_container">
       {todos &&
         todos.map(todo => {
           return (

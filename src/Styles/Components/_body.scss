@@ -1,26 +1,46 @@
 .body {
   align-items: center;
-  border-radius: $size_8;
+  border: $size_1 solid $white;
+  border-radius: $size_3;
+  box-shadow: $size_2 $size_1 $size_6;
   display: flex;
   justify-content: space-evenly;
-  margin: $size_5;
+  padding: $size_12 0;
+  margin: $size_5 $size_18;
 }
 
-@media screen and (max-width: $desktop_breakpoint) {
+.body__sub {
+  margin: 0 0 0 $size_15;
+  width: 50%;
+}
+
+@media screen and (max-width: $desktop_breakpoint_1) {
   .body {
-    align-items: flex-start;
-    border-radius: $size_8;
+    margin: $size_5 $size_12;
+  }
+}
+
+@media screen and (max-width: $desktop_breakpoint_2) {
+  .body {
+    align-items: center;
     display: flex;
-    padding: $size_4;
+    justify-content: center;
+    margin: $size_5 $size_8;
+    padding: 0 0 0 $size_4;
     flex-direction: column;
   }
   .body__sub {
     margin: 0;
-    width: $size_24;
+    padding: 0;
+    width: 100%;
   }
 }
 
-.body__sub {
-  margin: 0;
-  width: $size_24;
+@media screen and (max-width: $desktop_breakpoint_3) {
+  .body {
+    align-items: flex-start;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+  }
 }

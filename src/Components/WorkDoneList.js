@@ -15,7 +15,7 @@ const WorkDoneList = () => {
   };
 
   return (
-    <ul>
+    <ul className="list__container">
       {works &&
         works.map(work => {
           return (

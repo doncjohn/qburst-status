@@ -31,7 +31,7 @@
   transform: scale(1.2);
 }
 
-@media screen and (max-width: $desktop_breakpoint) {
+@media screen and (max-width: $desktop_breakpoint_2) {
   .button__copy {
     margin: $size_2 0;
     transition: 0.2s;

@@ -7,7 +7,7 @@ const Header = () => {
 
   return (
     <div className="header">
-      <h2>QBS - Qburst Status</h2>
+      <h2 className="header__text">QBS - Qburst Status</h2>
       <p>{subject}</p>
     </div>
   );

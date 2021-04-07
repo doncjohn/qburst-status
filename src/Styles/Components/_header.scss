@@ -4,7 +4,11 @@
   justify-content: space-around;
 }
 
-@media screen and (max-width: $desktop_breakpoint) {
+.header__text {
+  text-shadow: $size_2 $size_2 $size_3 $shadow;
+}
+
+@media screen and (max-width: $desktop_breakpoint_2) {
   .header {
     align-items: center;
     display: flex;

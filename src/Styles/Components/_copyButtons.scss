@@ -5,7 +5,7 @@
   margin-top: $size_12;
 }
 
-@media screen and (max-width: $desktop_breakpoint) {
+@media screen and (max-width: $desktop_breakpoint_2) {
   .copyButtons {
     display: flex;
     flex-direction: column;

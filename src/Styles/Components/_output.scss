@@ -1,9 +1,16 @@
 .output {
   margin: 0;
-  width: $size_24;
+  width: 50%;
 }
 
 .output__title {
   font-size: $size_8;
   font-weight: bolder;
+}
+
+@media screen and (max-width: $desktop_breakpoint_2) {
+  .output {
+    width: 50%;
+    width: 100%;
+  }
 }
