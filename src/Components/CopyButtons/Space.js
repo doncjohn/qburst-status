@@ -1,22 +1,21 @@
 // Context
 import { useContext } from 'react';
-import statusContext from '../Context/statusContext';
-
+import userContext from '../../Context/userContext';
 // SVG Import
-import { ReactComponent as SpaceSVG } from '../Styles/svg/space.svg';
+import { ReactComponent as SpaceSVG } from '../../Styles/svg/space.svg';
 
 const Space = () => {
-  const { works, setSpace, setButton } = useContext(statusContext);
+  const { workdone, setOutput } = useContext(userContext);
 
   const onClick = () => {
-    const workDone = works.map(work => work.name.toString() + '\n');
+    const workDone = workdone.map(work => work.workdonetext.toString() + '\n#');
     const string = `Work Done:\n${workDone
       .toString()
       .trim()
-      .replaceAll(',', '')}`;
+      .replaceAll('#,', '')
+      .replaceAll('#', '')}`;
 
-    setSpace(string);
-    setButton('space');
+    setOutput(string);
     navigator.clipboard.writeText(string);
   };
 

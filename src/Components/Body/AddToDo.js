@@ -1,14 +1,28 @@
 // State & Context
 import { useState, useContext } from 'react';
-import statusContext from '../Context/statusContext';
+import userContext from '../../Context/userContext';
 
 // SVG Import
-import { ReactComponent as AddSVG } from '../Styles/svg/add.svg';
+import { ReactComponent as AddSVG } from '../../Styles/svg/add.svg';
 
 import { uid } from 'uid';
 
 const AddToDo = () => {
-  const { todos, setTodos } = useContext(statusContext);
+  const { user, fetchTodos } = useContext(userContext);
+  const { token } = user;
+
+  const fetchAddTodos = async (todoid, todotext) => {
+    const str = `Bearer ${token}`;
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: str,
+      },
+      body: JSON.stringify({ todoid, todotext }),
+    };
+    await fetch(`http://localhost:1212/todo/add`, requestOptions);
+  };
 
   const [todo, setTodo] = useState('');
   const onChange = e => {
@@ -18,8 +32,9 @@ const AddToDo = () => {
   const onClick = async e => {
     if (!e.key || (e.key && e.key === 'Enter')) {
       const id = uid();
-      if (todo) setTodos([...todos, { id, name: todo }]);
+      await fetchAddTodos(id, todo);
       setTodo('');
+      await fetchTodos(token);
     }
   };
 

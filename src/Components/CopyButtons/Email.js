@@ -1,35 +1,35 @@
 // Context
 import { useContext } from 'react';
-import statusContext from '../Context/statusContext';
+import userContext from '../../Context/userContext';
 
 // SVG Import
-import { ReactComponent as EmailSVG } from '../Styles/svg/gmail.svg';
+import { ReactComponent as EmailSVG } from '../../Styles/svg/gmail.svg';
 
 const Email = () => {
   const {
+    workdone,
+    todo,
+    project,
     dateString,
     subject,
-    project,
-    works,
-    todos,
-    setEmail,
-    setButton,
-  } = useContext(statusContext);
+    setOutput,
+  } = useContext(userContext);
 
   const onClick = () => {
-    const workDone = works.map(work => work.name.toString() + '\n');
-    const toDo = todos.map(todo => todo.name.toString() + '\n');
+    const workDone = workdone.map(work => work.workdonetext.toString() + '\n#');
+    const toDo = todo.map(todo => todo.todotext.toString() + '\n#');
 
     const string = `${subject}\n\nProject: ${project}\nDate: ${dateString}\n\nWork Done:\n${workDone
       .toString()
       .trim()
-      .replaceAll(',', '')}\n\nTo Do:\n${toDo
+      .replaceAll('#,', '')
+      .replaceAll('#', '')}\n\nTo Do:\n${toDo
       .toString()
       .trim()
-      .replaceAll(',', '')}`;
+      .replaceAll('#,', '')
+      .replaceAll('#', '')}`;
 
-    setEmail(string);
-    setButton('email');
+    setOutput(string);
     navigator.clipboard.writeText(string);
   };
 

@@ -1,14 +1,28 @@
 // State & Context
 import { useState, useContext } from 'react';
-import statusContext from '../Context/statusContext';
+import userContext from '../../Context/userContext';
 
 // SVG Import
-import { ReactComponent as AddSVG } from '../Styles/svg/add.svg';
+import { ReactComponent as AddSVG } from '../../Styles/svg/add.svg';
 
 import { uid } from 'uid';
 
 const AddWorkDone = () => {
-  const { works, setWorks } = useContext(statusContext);
+  const { user, fetchWorkdones } = useContext(userContext);
+  const { token } = user;
+
+  const fetchAddWorkdones = async (workdoneid, workdonetext) => {
+    const str = `Bearer ${token}`;
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: str,
+      },
+      body: JSON.stringify({ workdoneid, workdonetext }),
+    };
+    await fetch(`http://localhost:1212/workdone/add`, requestOptions);
+  };
 
   const [work, setwork] = useState('');
   const onChange = e => {
@@ -18,8 +32,9 @@ const AddWorkDone = () => {
   const onClick = async e => {
     if (!e.key || (e.key && e.key === 'Enter')) {
       const id = uid();
-      if (work) setWorks([...works, { id, name: work }]);
+      await fetchAddWorkdones(id, work);
       setwork('');
+      await fetchWorkdones(token);
     }
   };
 
